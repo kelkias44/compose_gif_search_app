@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">gif_search_app</string>
+    <string name="id">ID</string>
+    <string name="type">Type</string>
+    <string name="height">Height</string>
+    <string name="width">Width</string>
+    <string name="gifNotFound">Gif Not Found</string>
+    <string name="gifDetails">Gif Details</string>
+    <string name="gifSearch">Gif Search</string>
+    <string name="searchGif">Search Gif …</string>
+    <string name="noGifFound">No Gif Found</string>
+    <string name="error">Error</string>
+    <string name="retry">Retry</string>
+    <string name="back">Back</string>
+    <string name="unableToLoadGif">Unable to load the gif</string>
+</resources>
