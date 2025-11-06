@@ -20,7 +20,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "GIPHY_API_KEY", "\"QVLk8q08CO7T4SXgyXNGtl76pLRzydnu\"")
+        buildConfigField("String", "GIPHY_API_KEY", "ENTER-YOUR-API-KEY-HERE")
     }
 
     buildTypes {
