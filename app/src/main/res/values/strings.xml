@@ -4,6 +4,7 @@
     <string name="type">Type</string>
     <string name="height">Height</string>
     <string name="width">Width</string>
+    <string name="rating">Rating</string>
     <string name="gifNotFound">Gif Not Found</string>
     <string name="gifDetails">Gif Details</string>
     <string name="gifSearch">Gif Search</string>

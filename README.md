@@ -122,9 +122,7 @@ Run unit tests:
 ```
 
 Test coverage includes:
-- ViewModel state management
 - Data mapping transformations
-- RichResult utility functions
 
 ## Configuration
 

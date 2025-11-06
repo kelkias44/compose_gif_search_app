@@ -20,6 +20,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
@@ -75,16 +76,6 @@ fun GifDetailContent(
             }
         }.build()
 
-    var isLoading by remember {
-        mutableStateOf(
-            false
-        )
-    }
-    var isError by remember {
-        mutableStateOf(
-            false
-        )
-    }
 
     Column(
         modifier = modifier
@@ -94,45 +85,14 @@ fun GifDetailContent(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        if(isLoading){
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier.fillMaxWidth().height(480.dp)
-            ) {
-                CircularProgressIndicator()
-            }
-        }else if(isError){
-            Box(
-                contentAlignment = Alignment.Center,
-                modifier = Modifier.fillMaxWidth().height(480.dp)
-            ) {
-                Text(
-                    text = stringResource(R.string.unableToLoadGif),
-                    style = MaterialTheme.typography.titleLarge,
-                    textAlign = TextAlign.Center
-                )
-            }
-        }else{
             AsyncImage(
                 model = gif.images.previewGif.url,
                 contentDescription = gif.title,
+                placeholder = painterResource(R.drawable.ic_downloading),
                 imageLoader = gifEnabledLoader,
-                onLoading = {
-                    isLoading = true
-                    isError = false
-                },
-                onError = {
-                    isLoading = false
-                    isError = true
-                },
-                onSuccess = {
-                    isLoading = false
-                    isError = false
-                },
                 modifier = Modifier
                     .height(480.dp)
             )
-        }
 
         Text(
             text = gif.title,
@@ -154,6 +114,7 @@ fun GifDetailContent(
                 InfoRow(stringResource(R.string.type), gif.type)
                 InfoRow(stringResource(R.string.height), "${gif.images.previewGif.height}px")
                 InfoRow(stringResource(R.string.width), "${gif.images.previewGif.width}px")
+                InfoRow(stringResource(R.string.rating), gif.rating)
             }
         }
     }

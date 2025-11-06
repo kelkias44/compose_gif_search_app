@@ -40,11 +40,11 @@ class GifListViewModel @Inject constructor(
         searchQuery = query
         currentOffset = 0
         hasMoreGifs = true
-        _gifs.value = emptyList()
 
         searchJob?.cancel()
         searchJob = viewModelScope.launch {
             delay(500)
+            _gifs.value = emptyList()
 
             if (query.isBlank()) {
                 loadTrendingGifs()
